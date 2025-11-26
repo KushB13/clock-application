@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Chrono</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="neon-nav">
+            <button class="nav-btn active" data-target="clock">CLOCK</button>
+            <button class="nav-btn" data-target="timer">TIMER</button>
+            <button class="nav-btn" data-target="stopwatch">STOPWATCH</button>
+            <button class="nav-btn" data-target="alarm">ALARM</button>
+        </nav>
+
+        <main class="content">
+            <!-- Clock Section -->
+            <section id="clock" class="active-section">
+                <div class="clock-display">
+                    <div class="time" id="main-time">00:00:00</div>
+                    <div class="date" id="main-date">MON, JAN 01</div>
+                </div>
+            </section>
+
+            <!-- Timer Section -->
+            <section id="timer">
+                <div class="timer-display">
+                    <div class="time" id="timer-time">00:00:00</div>
+                </div>
+                <div class="controls">
+                    <div class="input-group">
+                        <input type="number" id="timer-hours" placeholder="00" min="0" max="99">
+                        <span class="separator">:</span>
+                        <input type="number" id="timer-minutes" placeholder="00" min="0" max="59">
+                        <span class="separator">:</span>
+                        <input type="number" id="timer-seconds" placeholder="00" min="0" max="59">
+                    </div>
+                    <div class="btn-group">
+                        <button id="timer-start" class="action-btn">START</button>
+                        <button id="timer-reset" class="action-btn secondary">RESET</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stopwatch Section -->
+            <section id="stopwatch">
+                <div class="stopwatch-display">
+                    <div class="time" id="stopwatch-time">00:00:00<span class="milliseconds">.00</span></div>
+                </div>
+                <div class="controls">
+                    <div class="btn-group">
+                        <button id="stopwatch-start" class="action-btn">START</button>
+                        <button id="stopwatch-lap" class="action-btn secondary" disabled>LAP</button>
+                        <button id="stopwatch-reset" class="action-btn secondary">RESET</button>
+                    </div>
+                </div>
+                <div class="laps" id="stopwatch-laps">
+                    <!-- Laps will appear here -->
+                </div>
+            </section>
+
+            <!-- Alarm Section -->
+            <section id="alarm">
+                <div class="alarm-create">
+                    <input type="time" id="alarm-input">
+                    <input type="text" id="alarm-label" placeholder="Label">
+                    <button id="alarm-add" class="action-btn">ADD ALARM</button>
+                </div>
+                <div class="alarms-list" id="alarms-list">
+                    <!-- Alarms will appear here -->
+                </div>
+            </section>
+        </main>
+    </div>
+    <audio id="alarm-sound" src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3" preload="auto"></audio>
+    <script src="script.js"></script>
+</body>
+</html>
